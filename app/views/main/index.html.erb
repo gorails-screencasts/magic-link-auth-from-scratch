@@ -1,0 +1,11 @@
+<% if Current.user %>
+  <%= button_to "Logout", login_path, method: :delete %>
+<% else %>
+  <p>Not logged in.</p>
+
+  <h4>Login with email</h4>
+  <%= form_with url: login_path, method: :post do |form| %>
+    <%= form.email_field :email, placeholder: "tim@apple.com" %>
+    <%= form.submit %>
+  <% end %>
+<% end %>
